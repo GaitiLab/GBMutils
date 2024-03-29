@@ -2,11 +2,10 @@ Package: GBMutils
 Title: Helper functions used in the GBM project in the Gaiti Lab
 Version: 0.0.0.9000
 Authors@R:
-    person("Joan", "Kant", "Joan.Kant@uhn.ca", role = c("aut", "cre"),
+    person("Joan", "Kant", email = "Joan.Kant@uhn.ca", role = c("cre"),
            comment = c(ORCID = "0009-0007-1837-5854"))
 Description: Package containing helper functions in the GBM project.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+License: `use_mit_license()`
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
