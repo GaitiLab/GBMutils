@@ -1,3 +1,13 @@
+#' @title Set working directory automatically
+#' @export
+set_wd <- function () {
+  cmd_args <- commandArgs(trailingOnly = FALSE)
+  has_script_filepath <- startsWith(cmd_args, "--file=")
+  if (sum(has_script_filepath)) {
+    setwd(dirname(unlist(strsplit(cmd_args[has_script_filepath], "=")))[2])
+} 
+}
+
 #' Setup default argparser
 #'
 #' Set up a default argument parser, with two default arguments: log_level and output_dir
