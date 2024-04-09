@@ -63,3 +63,61 @@ adapt_transparency <- function(ix, groups, colors, alpha_new = 0.25) {
     } else {
         return(adjustcolor(colors[ix], alpha.f = alpha_new))
     }}
+
+#' @title Transpose dataframe
+#' @param df dataframe
+#' @param set_index set 'col1' as index by default FALSE,
+#' @return transposed dataframe
+#' @export
+#' @importFrom tibble %>% rownames_to_column
+#' @importFrom tidyr  pivot_longer pivot_wider
+transpose_df <- function(df, set_index = FALSE) {
+    t_df <- df %>%
+        rownames_to_column() %>%
+        pivot_longer(!rowname, names_to = "col1", values_to = "col2") %>%
+        pivot_wider(names_from = "rowname", values_from = "col2")
+
+    if (set_index) {
+        t_df <- t_df %>% column_to_rownames("col1")
+    }
+    return(t_df)
+}
+
+#' @title Function for getting get_pcs
+#' @param seurat_obj seurat object
+#' @param reduc layer to use for 'reduction' (default: pca)
+#' @param var Last point where change of % of variation is more than X%
+#' @export
+get_pcs <- function(seurat_obj, reduc = "pca", var = 0.05) {
+    # Determine percent of variation associated with each PC
+    pct <- seurat_obj[[reduc]]@stdev / sum(seurat_obj[[reduc]]@stdev) * 100
+    # Calculate cumulative percents for each PC
+    cumu <- cumsum(pct)
+    # Determine which PC exhibits cumulative percent greater than 90% and %
+    # variation associated with the PC as less than 5
+    co1 <- which(cumu > 90 & pct < 5)[1]
+    # Determine the difference between variation of PC and subsequent PC
+    # Last point where change of % of variation is more than 0.05%
+    co2 <- sort(which((pct[seq(1, length(pct) - 1)] - pct[seq(2, length(pct))]) > var),
+        decreasing = TRUE
+    )[1] + 1
+    c(co1, co2)
+}
+
+#' @title Generate pairs,
+#' @param v vector with labels
+#' @param remove_self remove self-pairs
+#' @param return_undirected remove directed pairs, i.e. A-B == B-A
+#' @param collapse delimiter
+#' @export
+generate_pairs <- function(v, collapse = "__", remove_self = TRUE, return_undirected = TRUE) {
+    pairs <- expand.grid(v, v)
+    if (remove_self) {
+        pairs <- pairs[pairs[, 1] != pairs[, 2], ]
+    }
+    if (return_undirected) {
+        return(unique(apply(pairs, 1, function(x) paste0(sort(x), collapse = collapse))))
+    } else {
+        return(apply(pairs, 1, paste0, collapse = collapse))
+    }
+}
