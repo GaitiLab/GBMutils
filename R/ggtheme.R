@@ -15,7 +15,7 @@ GBM_theme <- function(base_size = 14, base_family = "Helvetica") {
                 face = "bold",
                 size = rel(1.2), hjust = 0.5
             ),
-            text = element_markdown(),
+            text = element_text(),
             panel.background = element_rect(colour = NA),
             plot.background = element_rect(colour = NA),
             panel.border = element_rect(colour = NA),
