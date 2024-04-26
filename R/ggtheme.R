@@ -22,7 +22,7 @@ GBM_theme <- function(base_size = 14, base_family = "Helvetica") {
             axis.title = element_markdown(face = "bold", size = rel(1.1)),
             axis.title.y = element_markdown(angle = 90, vjust = 2),
             axis.title.x = element_markdown(vjust = -0.2),
-            axis.text = element_markdown(size = rel(1)),
+            axis.text = element_text(size = rel(1)),
             axis.line = element_line(colour = "black"),
             axis.ticks = element_line(),
             panel.grid.major = element_blank(),
