@@ -22,4 +22,8 @@ Imports:
     tidyr,
     tools,
     Seurat, 
-    ggtext
+    ggtext,
+    ggh4x
+Remotes: 
+    teunbrand/ggh4x
+
