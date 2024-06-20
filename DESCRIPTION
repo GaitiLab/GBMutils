@@ -28,6 +28,5 @@ Imports:
     MASS
 Remotes: 
     teunbrand/ggh4x,
-    satijalab/Seurat@v4.4.0,
     cran/Matrix@1.6-5,
     cran/MASS@7.3-60
