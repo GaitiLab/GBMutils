@@ -1,39 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GBM_theme.html</loc>
-  </url>
-  <url>
-    <loc>/reference/adapt_transparency.html</loc>
-  </url>
-  <url>
-    <loc>/reference/convert_iteration_matrix_to_df.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/load_GBM_data.html</loc>
-  </url>
-  <url>
-    <loc>/reference/load_color_palette.html</loc>
-  </url>
-  <url>
-    <loc>/reference/load_invasive_signature.html</loc>
-  </url>
-  <url>
-    <loc>/reference/sample_cells.html</loc>
-  </url>
-  <url>
-    <loc>/reference/sample_iteration.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/GBM_theme.html</loc></url>
+<url><loc>/reference/adapt_transparency.html</loc></url>
+<url><loc>/reference/compute_corr.html</loc></url>
+<url><loc>/reference/convert_iteration_matrix_to_df.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/load_GBM_data.html</loc></url>
+<url><loc>/reference/load_color_palette.html</loc></url>
+<url><loc>/reference/load_invasive_signature.html</loc></url>
+<url><loc>/reference/run_bootstrap_corr.html</loc></url>
+<url><loc>/reference/sample_cells.html</loc></url>
+<url><loc>/reference/sample_iteration.html</loc></url>
 </urlset>
+
