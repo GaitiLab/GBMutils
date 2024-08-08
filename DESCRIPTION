@@ -25,7 +25,8 @@ Imports:
     ggtext,
     ggh4x,
     Matrix,
-    MASS
+    MASS,
+    boot
 Remotes: 
     teunbrand/ggh4x,
     cran/Matrix@1.6-5,
