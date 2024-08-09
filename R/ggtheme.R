@@ -18,7 +18,7 @@ GBM_theme <- function(base_size = 14, base_family = "Helvetica") {
             panel.background = element_rect(colour = NA),
             plot.background = element_rect(colour = NA),
             panel.border = element_rect(colour = NA),
-            axis.title = element_markdown(face = "bold", size = rel(1.1)),
+            axis.title = element_markdown(size = rel(1.1)),
             axis.title.y = element_markdown(angle = 90, vjust = 2),
             axis.title.x = element_markdown(vjust = -0.2),
             axis.text = element_text(size = rel(1)),
