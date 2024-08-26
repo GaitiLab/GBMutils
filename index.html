@@ -58,8 +58,9 @@
 <div class="section level1">
 <div class="page-header"><h1 id="gbmutils">GBMUtils<a class="anchor" aria-label="anchor" href="#gbmutils"></a>
 </h1></div>
-<p>R-package containing helper functions used in the GBM project.</p>
-<p>The package can be easily installed through GitHub:</p>
+<p>R-package containing functions used for analyses in “Glioblastoma cells co-opt epigenetic regulators of normal oligodendrocyte development for brain infiltration”.</p>
+<p>Code to reproduce analyses and figures from the paper can be found here: <a href="https://github.com/GaitiLab/gbm_manuscript" class="external-link">https://github.com/GaitiLab/gbm_manuscript</a></p>
+<p>The package can be installed as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"GaitiLab/GBMutils"</span><span class="op">)</span></span>
 <span><span class="co"># or</span></span>
@@ -68,90 +69,6 @@
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"GaitiLab/GBMutils"</span><span class="op">)</span></span>
 <span><span class="co"># or</span></span>
 <span><span class="fu">pacman</span><span class="fu">::</span><span class="fu">p_load_gh</span><span class="op">(</span><span class="st">"GaitiLab/GBMutils"</span><span class="op">)</span></span></code></pre></div>
-<p>The following sections will explain how this package can be used.</p>
-<div class="section level2">
-<h2 id="script-setup">Script setup<a class="anchor" aria-label="anchor" href="#script-setup"></a>
-</h2>
-<p><code>set_wd()</code> - sets up working directory based on the directory of the script that you’re running.</p>
-<p><code>setup_default_argparser()</code> - sets up the <code>ArgumentParser()</code> with two default arguments: 1. <code>description</code>, used as follows <code>argparse::ArgumentParser(description = description)</code> 1. <code>default_output</code>, name of output folder, by default <code>output</code>.</p>
-<p>Use case:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">parser</span> <span class="op">&lt;-</span> <span class="fu">setup_default_argparser</span><span class="op">(</span></span>
-<span></span>
-<span>    description <span class="op">=</span> <span class="st">"Get metadata"</span>,</span>
-<span></span>
-<span><span class="op">)</span></span>
-<span><span class="va">parser</span><span class="op">$</span><span class="fu">add_argument</span><span class="op">(</span><span class="st">"--input_file"</span>, help <span class="op">=</span> <span class="st">"Seurat input file"</span>, type <span class="op">=</span> <span class="st">"character"</span><span class="op">)</span></span>
-<span><span class="va">args</span> <span class="op">&lt;-</span> <span class="va">parser</span><span class="op">$</span><span class="fu">parse_args</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>The <code>parser</code> object contains by default 2 arguments <code>--log_level</code> (for the logger; by default=5) and <code>--output_dir</code> .</p>
-<p><code>init_logging()</code> - set up logging, with two arguments, <code>log_level</code> (required, value between 1-5) and log_file` (optional) which should be a location to a path in case you want to actually save the log messages to a file.</p>
-<p>Use case:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="va">logr</span> <span class="op">&lt;-</span> <span class="fu">init_logging</span><span class="op">(</span>log_level <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
-<p>After initialization, you can use the different types of log messages:</p>
-<pre><code><span><span class="fu">log_debug</span><span class="op">(</span><span class="st">"This is a message"</span><span class="op">)</span></span>
-<span><span class="fu">log_info</span><span class="op">(</span><span class="st">"This is a message"</span><span class="op">)</span></span>
-<span><span class="fu">log_error</span><span class="op">(</span><span class="st">"This is a message"</span><span class="op">)</span></span>
-<span><span class="fu">log_warn</span><span class="op">(</span><span class="st">"This is a message"</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="section level2">
-<h2 id="loading-gbm-specific-data">Loading GBM specific data<a class="anchor" aria-label="anchor" href="#loading-gbm-specific-data"></a>
-</h2>
-<p><code><a href="reference/load_GBM_data.html">load_GBM_data()</a></code> - Load GBM Seurat object.</p>
-<p><code><a href="reference/load_invasive_signature.html">load_invasive_signature()</a></code> - Load invasive gene signature.</p>
-<p><code>load_color_palette(name = "CellClass_L2")</code> - Load color palette. Name can be one of: Region, CellClass_L2, CCI_CellClass_L2, GBMap or ATAC. Will return a named vector with the colors.</p>
-</div>
-<div class="section level2">
-<h2 id="visualization">Visualization<a class="anchor" aria-label="anchor" href="#visualization"></a>
-</h2>
-<p><code><a href="reference/GBM_theme.html">GBM_theme()</a></code> - <code>ggplot2</code> theme, standard theme for GBM project. In the use case below <code>+ theme()</code> is optional, you can use it to <strong>override</strong> certain settings described in GBM_theme()</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># + theme() is optional</span></span>
-<span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="reference/GBM_theme.html">GBM_theme</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu">theme</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Setup of GBM_theme() for reference</span></span>
-<span><span class="va">GBM_theme</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">base_size</span> <span class="op">=</span> <span class="fl">14</span>, <span class="va">base_family</span> <span class="op">=</span> <span class="st">"Helvetica"</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="op">(</span><span class="fu">theme_foundation</span><span class="op">(</span>base_size <span class="op">=</span> <span class="va">base_size</span>, base_family <span class="op">=</span> <span class="va">base_family</span><span class="op">)</span></span>
-<span>    <span class="op">+</span> <span class="fu">theme</span><span class="op">(</span></span>
-<span>            plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span></span>
-<span>                face <span class="op">=</span> <span class="st">"bold"</span>,</span>
-<span>                size <span class="op">=</span> <span class="fu">rel</span><span class="op">(</span><span class="fl">1.2</span><span class="op">)</span>, hjust <span class="op">=</span> <span class="fl">0.5</span></span>
-<span>            <span class="op">)</span>,</span>
-<span>            text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>            panel.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>            plot.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>            panel.border <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>            axis.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span>, size <span class="op">=</span> <span class="fu">rel</span><span class="op">(</span><span class="fl">1.1</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>            axis.title.y <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>, vjust <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
-<span>            axis.title.x <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>vjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.2</span><span class="op">)</span>,</span>
-<span>            axis.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fu">rel</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>            axis.line <span class="op">=</span> <span class="fu">element_line</span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
-<span>            axis.ticks <span class="op">=</span> <span class="fu">element_line</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>            <span class="co"># panel.grid.major = element_line(colour = "#f0f0f0"),</span></span>
-<span>            panel.grid.major <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>            panel.grid.minor <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>            legend.key <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>            legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
-<span>            legend.direction <span class="op">=</span> <span class="st">"horizontal"</span>,</span>
-<span>            legend.key.size <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">0.2</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
-<span>            legend.spacing <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">0</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
-<span>            legend.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face <span class="op">=</span> <span class="st">"plain"</span><span class="op">)</span>,</span>
-<span>            plot.margin <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
-<span>            strip.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"#ffffff"</span>, fill <span class="op">=</span> <span class="st">"#ffffff"</span><span class="op">)</span>,</span>
-<span>            strip.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span>, size <span class="op">=</span> <span class="fu">rel</span><span class="op">(</span><span class="fl">1.1</span><span class="op">)</span><span class="op">)</span></span>
-<span>        <span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div>
-<div class="float">
-<img src="src/example_GBM_theme.png" alt="GBM_theme"><div class="figcaption">GBM_theme</div>
-</div>
-<p>Example of <code><a href="reference/GBM_theme.html">GBM_theme()</a></code></p>
-</div>
-<div class="section level2">
-<h2 id="general-helper-functions">General helper functions<a class="anchor" aria-label="anchor" href="#general-helper-functions"></a>
-</h2>
-<p><code>create_dir(dir_path)</code> - creates directory if not existing, with <code>dir_path</code> the directory to create.</p>
-</div>
 </div>
   </div>
 
