@@ -14,7 +14,7 @@ GBM_theme <- function(base_size = 14, base_family = "Helvetica") {
     + ggplot2::theme(
             plot.title = ggplot2::element_text(
                 face = "bold",
-                size = rel(1.2), hjust = 0.5
+                size = ggplot2::rel(1.2), hjust = 0.5
             ),
             text = ggplot2::element_text(),
             panel.background = ggplot2::element_rect(colour = NA),
@@ -26,8 +26,8 @@ GBM_theme <- function(base_size = 14, base_family = "Helvetica") {
             axis.text = ggplot2::element_text(size = rel(1)),
             axis.line = ggplot2::element_line(colour = "black"),
             axis.ticks = ggplot2::element_line(),
-            panel.grid.major = element_blank(),
-            panel.grid.minor = element_blank(),
+            panel.grid.major = ggplot2::element_blank(),
+            panel.grid.minor = ggplot2::element_blank(),
             legend.key = ggplot2::element_rect(colour = NA),
             legend.position = "bottom",
             legend.direction = "horizontal",
