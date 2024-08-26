@@ -1,16 +1,21 @@
 #' @title Load genelist of invasive signature
 #' @description Load invasive signature derived from comparing PT OPC/NPC1 to Tumour bulk OPC/NPC1 cells.
+#' @param type 'high' or 'low'
 #' @return A list containing two vectors. Invasive up genes at index 1. Invasive down genes at index 2
 #' @importFrom dplyr %>% filter
 #' @export
-load_invasive_signature <- function() {
+load_invasive_signature <- function(type = "high") {
     degs_up <- degs_signature %>%
         filter(log2FoldChange > 1 & padj < 0.05)
     degs_dn <- degs_signature %>%
         filter(log2FoldChange < -1 & padj < 0.05)
-    degs_list <- list(degs_up$gene, degs_dn$gene)
-
-    return(degs_list)
+    if (type == "high") {
+    return(degs_up)
+    } else if (type == "low") {
+        return(degs_dn)
+    } else {
+        warning("Choose type = 'high' or type = 'low'")
+    }
 }
 
 #' @title Load color palette
