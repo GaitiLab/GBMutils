@@ -10,5 +10,5 @@ load_invasive_signature()
 A list containing two vectors. Invasive up genes at index 1. Invasive down genes at index 2
 }
 \description{
-Load invasive signature derived from comparing PT OPC/NPC1 to Tumour bulk OPC/NPC1 cells
+Load invasive signature derived from comparing PT OPC/NPC1 to Tumour bulk OPC/NPC1 cells.
 }

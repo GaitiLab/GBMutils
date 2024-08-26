@@ -2,18 +2,26 @@
 % Please edit documentation in R/ggtheme.R
 \name{GBM_theme}
 \alias{GBM_theme}
-\title{Standard theme for plots}
+\title{Standard theme for figures used in manuscript}
 \usage{
 GBM_theme(base_size = 14, base_family = "Helvetica")
 }
 \arguments{
-\item{base_size}{Base font size}
+\item{base_size}{Base font size (default = 14)}
 
-\item{base_family}{Base font family}
+\item{base_family}{Base font family (default = "Helvetica")}
 }
 \value{
 ggplot2 theme
 }
 \description{
-Standard theme for plots
+Standard theme for figures used in manuscript
+}
+\examples{
+\dontrun{
+import(ggplot2)
+ggplot(data = data, aes(x = x, y = y)) +
+    geom_point() +
+    GBM_theme()
+}
 }

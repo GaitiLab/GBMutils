@@ -1,40 +1,41 @@
-#' Standard theme for plots
-#' @param base_size Base font size
-#' @param base_family Base font family
+#' @title Standard theme for figures used in manuscript
+#' @param base_size Base font size (default = 14)
+#' @param base_family Base font family (default = "Helvetica")
 #' @return ggplot2 theme
 #' @export
-#' @import ggplot2
-#' @import ggthemes
-#' @import grid
-
+#' @examples \dontrun{
+#' import(ggplot2)
+#' ggplot(data = data, aes(x = x, y = y)) +
+#'     geom_point() +
+#'     GBM_theme()
+#' }
 GBM_theme <- function(base_size = 14, base_family = "Helvetica") {
-    (theme_foundation(base_size = base_size, base_family = base_family)
-    + theme(
-            plot.title = element_text(
+    (ggthemes::theme_foundation(base_size = base_size, base_family = base_family)
+    + ggplot2::theme(
+            plot.title = ggplot2::element_text(
                 face = "bold",
                 size = rel(1.2), hjust = 0.5
             ),
-            text = element_text(),
-            panel.background = element_rect(colour = NA),
-            plot.background = element_rect(colour = NA),
-            panel.border = element_rect(colour = NA),
-            axis.title = element_text(face = "bold", size = rel(1.1)),
-            axis.title.y = element_text(angle = 90, vjust = 2),
-            axis.title.x = element_text(vjust = -0.2),
-            axis.text = element_text(size = rel(1)),
-            axis.line = element_line(colour = "black"),
-            axis.ticks = element_line(),
-            # panel.grid.major = element_line(colour = "#f0f0f0"),
+            text = ggplot2::element_text(),
+            panel.background = ggplot2::element_rect(colour = NA),
+            plot.background = ggplot2::element_rect(colour = NA),
+            panel.border = ggplot2::element_rect(colour = NA),
+            axis.title = ggplot2::element_text(face = "bold", size = rel(1.1)),
+            axis.title.y = ggplot2::element_text(angle = 90, vjust = 2),
+            axis.title.x = ggplot2::element_text(vjust = -0.2),
+            axis.text = ggplot2::element_text(size = rel(1)),
+            axis.line = ggplot2::element_line(colour = "black"),
+            axis.ticks = ggplot2::element_line(),
             panel.grid.major = element_blank(),
             panel.grid.minor = element_blank(),
-            legend.key = element_rect(colour = NA),
+            legend.key = ggplot2::element_rect(colour = NA),
             legend.position = "bottom",
             legend.direction = "horizontal",
-            legend.key.size = unit(0.2, "cm"),
-            legend.spacing = unit(0, "cm"),
-            legend.title = element_text(face = "plain"),
-            plot.margin = unit(c(10, 5, 5, 5), "mm"),
-            strip.background = element_rect(colour = "#ffffff", fill = "#ffffff"),
-            strip.text = element_text(face = "bold", size = rel(1.1))
+            legend.key.size = grid::unit(0.2, "cm"),
+            legend.spacing = grid::unit(0, "cm"),
+            legend.title = ggplot2::element_text(face = "plain"),
+            plot.margin = grid::unit(c(10, 5, 5, 5), "mm"),
+            strip.background = ggplot2::element_rect(colour = "#ffffff", fill = "#ffffff"),
+            strip.text = ggplot2::element_text(face = "bold", size = rel(1.1))
         ))
 }

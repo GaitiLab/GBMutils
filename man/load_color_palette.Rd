@@ -12,3 +12,9 @@ named vector with colors
 \description{
 Load pre-defined color palette for cell types, regions etc.
 }
+\examples{
+\dontrun{
+palette1 <- load_color_palette(name = "CellClass_L2")
+palette2 <- load_color_palette(name = "CCI_CellClass_L2_2")
+}
+}
