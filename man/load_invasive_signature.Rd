@@ -4,10 +4,7 @@
 \alias{load_invasive_signature}
 \title{Load genelist of invasive signature}
 \usage{
-load_invasive_signature(name)
-}
-\arguments{
-\item{name}{either 'high' or 'low'}
+load_invasive_signature()
 }
 \value{
 A list containing two vectors. Invasive up genes at index 1. Invasive down genes at index 2

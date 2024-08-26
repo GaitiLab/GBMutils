@@ -21,7 +21,7 @@ Standard theme for figures used in manuscript
 \dontrun{
 import(ggplot2)
 ggplot(data = data, aes(x = x, y = y)) +
-    geom_point() +
-    GBM_theme()
+        geom_point() +
+        GBM_theme()
 }
 }
