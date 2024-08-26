@@ -10,20 +10,24 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
 Depends: 
-    R (>= 2.10)
+    R (>= 4.0)
 LazyData: true
 Imports:
     ggplot2,
     ggthemes,
     grid,
-    RobustRankAggreg,
-    argparse,
     dplyr,
-    fs,
     glue, 
-    log4r,
-    metap,
     tibble,
     tidyr,
     tools,
-    Seurat
+    Seurat, 
+    ggtext,
+    ggh4x,
+    Matrix,
+    MASS,
+    boot
+Remotes: 
+    teunbrand/ggh4x,
+    cran/Matrix@1.6-5,
+    cran/MASS@7.3-60
