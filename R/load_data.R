@@ -1,6 +1,6 @@
 #' @title Load genelist of invasive signature
 #' @description Load invasive signature derived from comparing PT OPC/NPC1 to Tumour bulk OPC/NPC1 cells.
-#' @param type 'high' or 'low'
+#' @param type 'high' or 'low' (default = TRUE)
 #' @return A list containing two vectors. Invasive up genes at index 1. Invasive down genes at index 2
 #' @importFrom dplyr %>% filter
 #' @export
