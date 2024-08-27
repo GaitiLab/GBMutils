@@ -32,5 +32,5 @@ load_color_palette <- function(name = "CellClass_L2") {
     return(color_palettes %>%
         dplyr::select(dplyr::all_of(cols_to_select)) %>%
         tidyr::drop_na() %>%
-        dplyr::deframe())
+        tibble::deframe())
 }
