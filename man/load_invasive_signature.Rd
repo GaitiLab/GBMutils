@@ -7,7 +7,7 @@
 load_invasive_signature(type = "high")
 }
 \arguments{
-\item{type}{'high' or 'low'}
+\item{type}{choose either 'high' or 'low' (default = 'high')}
 }
 \value{
 A list containing two vectors. Invasive up genes at index 1. Invasive down genes at index 2
