@@ -1,9 +1,0 @@
-repos:
-- repo: local
-  hooks:
-  - id: prep_data
-    name: prep_data
-    entry: pre-commit-hooks/prep_data.sh
-    language: script
-    pass_filenames: false
-    always_run: true

@@ -21,13 +21,13 @@ Imports:
     tibble,
     tidyr,
     tools,
-    Seurat, 
     ggtext,
     ggh4x,
     Matrix,
     MASS,
-    boot
+    GaitiLabUtils
 Remotes: 
     teunbrand/ggh4x,
     cran/Matrix@1.6-5,
-    cran/MASS@7.3-60
+    cran/MASS@7.3-60,
+    GaitiLab/GaitiLabUtils

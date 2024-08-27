@@ -23,18 +23,18 @@ GBM_theme <- function(base_size = 14, base_family = "Helvetica") {
                         # Panel
                         panel.background = ggplot2::element_rect(colour = NA),
                         panel.border = ggplot2::element_rect(colour = NA),
-                        panel.grid.major = element_blank(),
-                        panel.grid.minor = element_blank(),
-                        # Exes
-                        axis.title = ggplot2::element_markdown(size = ggplot2::rel(1.1)),
+                        panel.grid.major = ggplot2::element_blank(),
+                        panel.grid.minor = ggplot2::element_blank(),
+                        # Axes
+                        axis.title = ggplot2::element_markdown(size = ggplot2::rel(1.1), face = "plain"),
                         axis.title.y = ggplot2::element_markdown(
                                 angle = 90,
                                 vjust = 2
                         ),
                         axis.title.x = ggplot2::element_markdown(vjust = -0.2),
                         axis.text = ggplot2::element_text(size = ggplot2::rel(1)),
-                        axis.line = element_line(colour = "black"),
-                        axis.ticks = element_line(),
+                        axis.line = ggplot2::element_line(colour = "black"),
+                        axis.ticks = ggplot2::element_line(),
                         # Legend
                         legend.key = ggplot2::element_rect(colour = NA),
                         legend.position = "bottom",
