@@ -1,6 +1,6 @@
 Package: GBMutils
 Title: Helper functions used in the GBM project in the Gaiti Lab
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R:
     person("Joan", "Kant", email = "Joan.Kant@uhn.ca", role = c("cre"),
            comment = c(ORCID = "0009-0007-1837-5854"))
