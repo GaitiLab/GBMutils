@@ -10,7 +10,7 @@
 #'         GBM_theme()
 #' }
 GBM_theme <- function(base_size = 14, base_family = "Helvetica") {
-        (gggthemes::theme_foundation(base_size = base_size, base_family = base_family) +
+        (ggthemes::theme_foundation(base_size = base_size, base_family = base_family) +
                 ggplot2::theme(
                         # Plot
                         plot.title = ggplot2::element_markdown(
