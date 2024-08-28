@@ -1,6 +1,6 @@
 Package: GBMutils
 Title: Helper functions used in the GBM project in the Gaiti Lab
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: c(
     person(
         given = "Joan", 
@@ -46,3 +46,11 @@ Remotes:
     cran/Matrix@1.6-5,
     cran/MASS@7.3-60,
     GaitiLab/GaitiLabUtils
+Collate: 
+    'ggtheme.R'
+    'gsea.R'
+    'load_data.R'
+    'signac-generics.R'
+    'signac-fragments.R'
+    'signac-utilities.R'
+    'signac-visualization.R'
