@@ -13,7 +13,7 @@ GBM_theme <- function(base_size = 14, base_family = "Helvetica") {
         (ggthemes::theme_foundation(base_size = base_size, base_family = base_family) +
                 ggplot2::theme(
                         # Plot
-                        plot.title = ggplot2::element_markdown(
+                        plot.title = ggtext::element_markdown(
                                 face = "bold", size = ggplot2::rel(1.2),
                                 hjust = 0.5
                         ),
@@ -26,12 +26,12 @@ GBM_theme <- function(base_size = 14, base_family = "Helvetica") {
                         panel.grid.major = ggplot2::element_blank(),
                         panel.grid.minor = ggplot2::element_blank(),
                         # Axes
-                        axis.title = ggplot2::element_markdown(size = ggplot2::rel(1.1), face = "plain"),
-                        axis.title.y = ggplot2::element_markdown(
+                        axis.title = ggtext::element_markdown(size = ggplot2::rel(1.1), face = "plain"),
+                        axis.title.y = ggtext::element_markdown(
                                 angle = 90,
                                 vjust = 2
                         ),
-                        axis.title.x = ggplot2::element_markdown(vjust = -0.2),
+                        axis.title.x = ggtext::element_markdown(vjust = -0.2),
                         axis.text = ggplot2::element_text(size = ggplot2::rel(1)),
                         axis.line = ggplot2::element_line(colour = "black"),
                         axis.ticks = ggplot2::element_line(),
@@ -50,7 +50,7 @@ GBM_theme <- function(base_size = 14, base_family = "Helvetica") {
                                 colour = "#ffffff",
                                 fill = "#ffffff"
                         ),
-                        strip.text = ggplot2::element_markdown(
+                        strip.text = ggtext::element_markdown(
                                 face = "bold",
                                 size = ggplot2::rel(1.1)
                         )
