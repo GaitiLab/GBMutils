@@ -1,6 +1,6 @@
 Package: GBMutils
 Title: Helper functions used in the GBM project in the Gaiti Lab
-Version: 1.1.1
+Version: 1.1.2
 Authors@R: c(
     person(
         given = "Joan", 
@@ -40,7 +40,9 @@ Imports:
     ggh4x,
     Matrix,
     MASS,
-    GaitiLabUtils
+    GaitiLabUtils, 
+    patchwork, 
+    data.table
 Remotes: 
     teunbrand/ggh4x,
     cran/Matrix@1.6-5,
