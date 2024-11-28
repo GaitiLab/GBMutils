@@ -48,11 +48,3 @@ Remotes:
     cran/Matrix@1.6-5,
     cran/MASS@7.3-60,
     GaitiLab/GaitiLabUtils
-Collate: 
-    'ggtheme.R'
-    'gsea.R'
-    'load_data.R'
-    'signac-generics.R'
-    'signac-fragments.R'
-    'signac-utilities.R'
-    'signac-visualization.R'
