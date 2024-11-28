@@ -1,6 +1,6 @@
 Package: GBMutils
 Title: Helper functions used in the GBM project in the Gaiti Lab
-Version: 1.1.2
+Version: 1.2.0
 Authors@R: c(
     person(
         given = "Joan", 
